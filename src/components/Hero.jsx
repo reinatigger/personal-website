@@ -1,4 +1,9 @@
-import { Box, Typography, Button, Avatar } from "@mui/material";
+import { Box, Typography, Button, IconButton } from "@mui/material";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import EmailIcon from "@mui/icons-material/Email";
+
+import ReinaPic from "../assets/Reina_Picture.png";
 
 export default function Hero() {
   return (
@@ -7,38 +12,70 @@ export default function Hero() {
       sx={{
         bgcolor: "primary.main",
         color: "white",
-        py: 12,
+        py: { xs: 6, md: 8 },
         px: 8,
+        minHeight: "auto",
+
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
         alignItems: "center",
         justifyContent: "space-between",
-        minHeight: "70vh",
         gap: 8,
       }}
     >
       {/* LEFT SIDE — TEXT */}
-      <Box sx={{ flex: 1 }}>
-        <Typography variant="h6" sx={{ opacity: 0.9, mb: 2 }}>
+      <Box sx={{ flex: 1.2 }}>
+        <Typography variant="h6" sx={{ opacity: 0.9, mb: 1 }}>
           Hello, I’m <strong>Reina Tng</strong>
         </Typography>
 
-        <Typography variant="h2" fontWeight={800} sx={{ mb: 3 }}>
-          Building Products, Systems & Meaningful Experiences
+        <Typography variant="h2" fontWeight={800} sx={{ mb: 2 }}>
+          Turning Complex Problems into Clear, Scalable Solutions
         </Typography>
 
         <Typography
           variant="h6"
-          sx={{
-            opacity: 0.9,
-            mb: 4,
-            maxWidth: 520,
-          }}
+          sx={{ opacity: 0.9, mb: 4, color: "background.default" }}
         >
-          I enjoy solving problems at the intersection of product, engineering, 
-          and user needs — bringing structure to ideas, clarity to workflows, 
-          and creativity to the way solutions are built.
+          Business Analysis • Product • Systems Thinking
         </Typography>
+
+        {/* Social Icons */}
+        {/* Social Icons */}
+        <Box sx={{ display: "flex", gap: 2, mb: 5 }}>
+          {[
+            {
+              icon: <LinkedInIcon sx={{ fontSize: 32 }} />,
+              url: "https://www.linkedin.com/in/reinatng/",
+            },
+            {
+              icon: <GitHubIcon sx={{ fontSize: 32 }} />,
+              url: "https://github.com/reinatigger",
+            },
+            {
+              icon: <EmailIcon sx={{ fontSize: 32 }} />,
+              url: "mailto:tngreina10@gmail.com",
+            },
+          ].map((item, i) => (
+            <IconButton
+              key={i}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                color: "white",
+                transition: "0.25s",
+                borderRadius: "12px",
+                "&:hover": {
+                  backgroundColor: "rgba(255,255,255,0.2)",
+                  transform: "scale(1.15)",
+                },
+              }}
+            >
+              {item.icon}
+            </IconButton>
+          ))}
+        </Box>
 
         <Box sx={{ display: "flex", gap: 2 }}>
           <Button
@@ -68,7 +105,7 @@ export default function Hero() {
         </Box>
       </Box>
 
-      {/* RIGHT SIDE — PHOTO */}
+      {/* RIGHT SIDE — FULL IMAGE */}
       <Box
         sx={{
           flex: 1,
@@ -77,13 +114,12 @@ export default function Hero() {
           alignItems: "center",
         }}
       >
-        <Avatar
-          src="https://placehold.co/300x300/f0f9ff/2563eb?text=Reina+Tng"
-          sx={{
-            width: 260,
-            height: 260,
-            border: "4px solid white",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+        <img
+          src={ReinaPic}
+          alt="Reina"
+          style={{
+            width: "110%",
+            height: "auto",
           }}
         />
       </Box>

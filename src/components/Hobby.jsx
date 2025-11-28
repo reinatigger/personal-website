@@ -1,4 +1,7 @@
 import { Box, Typography, Paper } from "@mui/material";
+import Pouring from "../assets/latte_art.jpg";
+import Art1 from "../assets/art5.jpg";
+import Art2 from "../assets/art4.jpg";
 
 export default function Hobby() {
   return (
@@ -10,115 +13,103 @@ export default function Hobby() {
       }}
     >
       {/* Section Header */}
-      <Box sx={{ textAlign: "center", mb: 10 }}>
+      <Box sx={{ textAlign: "center", mb: 6 }}>
         <Typography
-          variant="h4"
+          variant="h5"
           fontWeight={700}
-          color="primary"
+          color="primary.light"
           sx={{ mb: 1 }}
         >
           Personal Passions
         </Typography>
 
         <Typography
-          variant="h3"
+          variant="h4"
           fontWeight={800}
           sx={{ color: "text.primary" }}
         >
-          The Precision & Ritual of Coffee
+          My Little Latte Art Hobby
         </Typography>
       </Box>
 
-      {/* FLEX CONTAINER */}
+      {/* TEXT BLOCK */}
       <Box
         sx={{
-          maxWidth: "1100px",
+          maxWidth: "750px",
           mx: "auto",
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          gap: 8,
-          alignItems: "center",
-          justifyContent: "space-between",
+          textAlign: "center",
+          mb: 8,
         }}
       >
-        {/* LEFT — TEXT */}
-        <Box sx={{ flex: 1 }}>
-          {/* Use h6 instead of h5 to match the scale of other section subheaders */}
-          <Typography
-            variant="h6"
-            fontWeight={700}
-            color="primary"
-            sx={{ mb: 3 }}
-          >
-            My Deep Dive into Latte Art & Brewing
-          </Typography>
-
-          <Typography
-            variant="body1"
-            sx={{ mb: 2, color: "text.secondary", lineHeight: 1.7 }}
-          >
-            Coffee has become a small everyday ritual I really enjoy — part
-            science, part creativity. I love understanding what makes a great
-            cup: grind size, extraction time, and milk steaming techniques.
-          </Typography>
-
-          <Typography
-            variant="body1"
-            sx={{ mb: 2, color: "text.secondary", lineHeight: 1.7 }}
-          >
-            Practising latte art has taught me patience and precision. It’s the
-            same mindset I bring into my work — refining, experimenting, and
-            improving one small step at a time.
-          </Typography>
-
-          <Typography
-            variant="body1"
-            sx={{ color: "text.secondary", lineHeight: 1.7 }}
-          >
-            Whether it’s dialing in espresso or creating a balanced pour-over,
-            coffee helps me slow down and appreciate process over outcome.
-          </Typography>
-        </Box>
-
-        {/* RIGHT — IMAGE FLEXBOX */}
-        <Box
-          sx={{
-            flex: 1,
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 2,
-            justifyContent: "center",
-          }}
+        <Typography
+          variant="h6"
+          fontWeight={700}
+          color="primary"
+          sx={{ mb: 3 }}
         >
-          {[
-            "https://placehold.co/500x500/8d6e63/ffffff?text=Latte+1",
-            "https://placehold.co/500x500/8d6e63/ffffff?text=Pour+Over",
-            "https://placehold.co/500x500/8d6e63/ffffff?text=Me+%2B+Coffee",
-            "https://placehold.co/500x500/8d6e63/ffffff?text=Latte+2",
-          ].map((src, idx) => (
-            <Paper
-              key={idx}
-              elevation={4}
-              sx={{
-                width: "48%",
-                borderRadius: 3,
-                overflow: "hidden",
-                transition: "0.3s",
-                "&:hover": { transform: "scale(1.03)" },
+          From Burnt Cones to Home Coffees
+        </Typography>
+
+        <Typography
+          variant="body1"
+          sx={{ mb: 2, color: "text.secondary", lineHeight: 1.7 }}
+        >
+          I picked up latte art when I worked at Burnt Cones — and it slowly
+          became a small, comforting hobby. Nothing serious, just me trying to
+          pour nicer hearts and tulips without the milk exploding everywhere.
+        </Typography>
+
+        <Typography
+          variant="body1"
+          sx={{ mb: 2, color: "text.secondary", lineHeight: 1.7 }}
+        >
+          Most days, I just enjoy the process: steaming milk, trying new beans,
+          and seeing if today’s pour turns out better than yesterday’s. It’s a
+          fun, quiet ritual I look forward to.
+        </Typography>
+
+        <Typography
+          variant="body1"
+          sx={{ color: "text.secondary", lineHeight: 1.7 }}
+        >
+          Even if the art fails, at least I still get a good cup of coffee.
+        </Typography>
+      </Box>
+
+      {/* IMAGE ROW — THREE EQUAL IMAGES */}
+      <Box
+        sx={{
+          maxWidth: "1000px",
+          mx: "auto",
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          gap: 3,
+          justifyContent: "center",
+        }}
+      >
+        {[Pouring, Art1, Art2].map((src, idx) => (
+          <Paper
+            key={idx}
+            elevation={4}
+            sx={{
+              flex: 1,
+              borderRadius: 3,
+              overflow: "hidden",
+              transition: "0.3s",
+              "&:hover": { transform: "scale(1.03)" },
+            }}
+          >
+            <img
+              src={src}
+              alt="latte hobby"
+              style={{
+                width: "100%",
+                height: "350px",
+                objectFit: "cover",
               }}
-            >
-              <img
-                src={src}
-                alt="coffee hobby"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-              />
-            </Paper>
-          ))}
-        </Box>
+            />
+          </Paper>
+        ))}
       </Box>
     </Box>
   );

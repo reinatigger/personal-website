@@ -1,47 +1,61 @@
-import { Box, Container, Typography, Grid, Paper } from "@mui/material";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import InsightsIcon from "@mui/icons-material/Insights";
-import CodeIcon from "@mui/icons-material/Code";
-import CloudIcon from "@mui/icons-material/Cloud";
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Paper,
+  useTheme,
+} from "@mui/material";
+
+import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn"; // BA & requirements
+import AccountTreeIcon from "@mui/icons-material/AccountTree"; // workflows
+import TimelineIcon from "@mui/icons-material/Timeline"; // journeys
+import HubIcon from "@mui/icons-material/Hub"; // systems & data
 
 export default function About() {
+  const theme = useTheme();
+
   const highlights = [
     {
-      icon: <DashboardIcon color="primary" sx={{ fontSize: 40 }} />,
-      label: "Product Management & Strategy",
+      icon: <AssignmentTurnedInIcon color="primary" sx={{ fontSize: 40 }} />,
+      label: "Business Analysis & Requirements",
     },
     {
-      icon: <InsightsIcon color="primary" sx={{ fontSize: 40 }} />,
-      label: "Business Analysis & Systems Design",
+      icon: <AccountTreeIcon color="primary" sx={{ fontSize: 40 }} />,
+      label: "Process & Workflow Design",
     },
     {
-      icon: <CodeIcon color="primary" sx={{ fontSize: 40 }} />,
-      label: "Software Engineering & Implementation",
+      icon: <TimelineIcon color="primary" sx={{ fontSize: 40 }} />,
+      label: "Product & User Journey Thinking",
     },
     {
-      icon: <CloudIcon color="primary" sx={{ fontSize: 40 }} />,
-      label: "Data & Cloud Technologies",
+      icon: <HubIcon color="primary" sx={{ fontSize: 40 }} />,
+      label: "Systems & Data Understanding",
     },
   ];
 
   return (
-    <Box id="about" sx={{ py: 12, bgcolor: "" }}>
+    <Box id="about" sx={{ py: 12 }}>
       <Container maxWidth="lg" sx={{ textAlign: "center" }}>
         {/* Section Title */}
         <Typography
-          variant="h4"
+          variant="h5"
           fontWeight="bold"
-          color="primary"
+          color="primary.light"
           sx={{ mb: 1 }}
         >
           About Me
         </Typography>
 
-        <Typography variant="h3" fontWeight="800" sx={{ mb: 6 }}>
-          Driven by Curiosity. Built Through Product, Systems & Engineering
-          Thinking.
+        <Typography
+          variant="h4"
+          fontWeight="800"
+          sx={{ mb: 6, color: "primary.main" }}
+        >
+          Where Business Needs Meet Systems Thinking
         </Typography>
 
+        {/* Paragraph 1 */}
         <Typography
           variant="h6"
           sx={{
@@ -50,24 +64,20 @@ export default function About() {
             mb: 6,
             color: "text.secondary",
             lineHeight: 1.9,
-            textAlign: "justify", // ⭐ makes paragraphs aligned like "="
-            textJustify: "inter-word", // ⭐ improves spacing between words
+            textAlign: "justify",
+            textJustify: "inter-word",
           }}
         >
-          I’m a product, business analysis, and engineering–oriented builder
-          pursuing a Bachelor of Computing (Information Systems) at the National
-          University of Singapore. I enjoy solving complex problems through
-          intuitive user experiences, scalable system design, and data-driven
-          workflows.
-          <br />
-          <br />
-          My experience spans product management, business analysis, and
-          software engineering across organisations like Binance, GIC, August
-          Robotics, and NCS, where I’ve contributed to user journey redesigns,
-          enterprise workflow transformations, frontend engineering, and
-          large-scale system testing.
+          I’m an Information Systems undergraduate at the National University of
+          Singapore with a strong interest in business analysis and systems
+          design. I enjoy understanding how teams work, mapping out workflows,
+          and translating real user needs into clear and actionable
+          requirements. Whether it's analysing gaps, improving processes, or
+          shaping product logic, I’m driven by making systems easier to
+          understand and use.
         </Typography>
 
+        {/* Paragraph 2 */}
         <Typography
           variant="h6"
           sx={{
@@ -76,16 +86,19 @@ export default function About() {
             mb: 10,
             color: "text.secondary",
             lineHeight: 1.9,
-            textAlign: "justify", // ⭐ same effect for second paragraph
+            textAlign: "justify",
             textJustify: "inter-word",
           }}
         >
-          This website is my space to share projects, ideas, and learnings as I
-          continue exploring the intersection of technology, finance, and
-          product thinking.
+          Through my roles at Binance, GIC, August Robotics, and NCS, I’ve
+          worked on requirement gathering, workflow redesigns, user journey
+          improvements, and end-to-end system testing. These experiences exposed
+          me to how enterprise systems and products are built, and shaped the
+          way I think about clarity, structure, and the importance of designing
+          solutions that are both scalable and intuitive for users.
         </Typography>
 
-        {/* Highlights */}
+        {/* Skill Highlights */}
         <Grid container spacing={4} justifyContent="center">
           {highlights.map((item, index) => (
             <Grid item xs={12} sm={6} md={3} key={index}>
@@ -93,15 +106,22 @@ export default function About() {
                 elevation={4}
                 sx={{
                   py: 5,
-                  px: 3, // ⭐ Added more padding left/right
+                  px: 3,
                   height: "100%",
-                  borderTop: "4px solid #2563eb",
+                  borderTop: `${theme.spacing(0.5)} solid ${
+                    theme.palette.primary.main
+                  }`,
                   borderRadius: 2,
+                  maxWidth: 200
                 }}
               >
                 <Box sx={{ textAlign: "center" }}>
                   {item.icon}
-                  <Typography fontWeight="bold" sx={{ mt: 2 }}>
+                  <Typography
+                    variant="subtitle1"
+                    fontWeight={700}
+                    sx={{ mt: 2, lineHeight: 1.4 }}
+                  >
                     {item.label}
                   </Typography>
                 </Box>
