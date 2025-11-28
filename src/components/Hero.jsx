@@ -1,9 +1,9 @@
-import { Box, Typography, Button, IconButton } from "@mui/material";
+import { Box, Typography, Button, IconButton, Avatar } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 
-import ReinaPic from "../assets/Reina_Picture.png";
+import ReinaPic from "../assets/reina_photo.jpg";
 
 export default function Hero() {
   return (
@@ -12,7 +12,7 @@ export default function Hero() {
       sx={{
         bgcolor: "primary.main",
         color: "white",
-        py: { xs: 6, md: 8 },
+        py: { xs: 10, md: 12 }, // 🔥 increased top/bottom padding
         px: 8,
         minHeight: "auto",
 
@@ -24,7 +24,7 @@ export default function Hero() {
       }}
     >
       {/* LEFT SIDE — TEXT */}
-      <Box sx={{ flex: 1.2 }}>
+      <Box sx={{ flex: 1.2, pl: { xs: 0, md: 10 } }}>
         <Typography variant="h6" sx={{ opacity: 0.9, mb: 1 }}>
           Hello, I’m <strong>Reina Tng</strong>
         </Typography>
@@ -109,17 +109,22 @@ export default function Hero() {
       <Box
         sx={{
           flex: 1,
+          pr: { xs: 0, md: 10 }, // 🔥 add right-side padding
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        <img
+        <Avatar
           src={ReinaPic}
           alt="Reina"
-          style={{
-            width: "110%",
-            height: "auto",
+          sx={{
+            width: { xs: 320, md: 520 }, // 🔥 BIG hero-sized avatar
+            height: { xs: 320, md: 520 },
+            borderRadius: "50%",
+            border: "8px solid white", // looks better on large avatar
+            boxShadow: "0 10px 25px rgba(0,0,0,0.25)",
+            objectFit: "cover",
           }}
         />
       </Box>
