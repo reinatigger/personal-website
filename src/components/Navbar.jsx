@@ -17,10 +17,17 @@ export default function Navbar() {
 
   const navItems = [
     { label: "About", link: "#about" },
+    { label: "Passion", link: "#hobby" },
     { label: "Experiences", link: "#experiences" },
     { label: "Projects", link: "#projects" },
-    { label: "Contact", link: "#contact" },
   ];
+
+  const handleSmoothScroll = (selector) => {
+    const section = document.querySelector(selector);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -43,8 +50,8 @@ export default function Navbar() {
             {navItems.map((item) => (
               <Button
                 key={item.label}
-                href={item.link}
                 color="primary"
+                onClick={() => handleSmoothScroll(item.link)}
                 sx={{
                   fontWeight: 500,
                   ":hover": { color: "primary.dark" },
@@ -53,17 +60,6 @@ export default function Navbar() {
                 {item.label}
               </Button>
             ))}
-
-            <Button
-              href="#contact"
-              variant="contained"
-              color="primary"
-              sx={{
-                ":hover": { backgroundColor: "primary.dark" },
-              }}
-            >
-              Get In Touch
-            </Button>
           </Box>
 
           {/* Mobile Button */}
@@ -83,8 +79,10 @@ export default function Navbar() {
             {navItems.map((item) => (
               <ListItemButton
                 key={item.label}
-                href={item.link}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  setOpen(false);
+                  setTimeout(() => handleSmoothScroll(item.link), 250);
+                }}
                 sx={{
                   color: "primary.main",
                   fontWeight: 600,

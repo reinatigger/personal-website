@@ -12,9 +12,9 @@ export default function Hero() {
       sx={{
         bgcolor: "primary.main",
         color: "white",
-        py: { xs: 10, md: 12 }, // 🔥 increased top/bottom padding
+        py: { xs: 14, md: 16 },
+        pb: { xs: 8, md: 10 }, // <-- shorter bottom
         px: 8,
-        minHeight: "auto",
 
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
@@ -24,13 +24,13 @@ export default function Hero() {
       }}
     >
       {/* LEFT SIDE — TEXT */}
-      <Box sx={{ flex: 1.2, pl: { xs: 0, md: 10 } }}>
-        <Typography variant="h6" sx={{ opacity: 0.9, mb: 1 }}>
-          Hello, I’m <strong>Reina Tng</strong>
-        </Typography>
-
-        <Typography variant="h2" fontWeight={800} sx={{ mb: 2 }}>
-          Turning Complex Problems into Clear, Scalable Solutions
+      <Box sx={{ flex: 1.2, ml: { xs: 0, md: 6 } }}>
+        <Typography
+          variant="h2"
+          fontWeight={800}
+          sx={{ mb: 2, whiteSpace: "pre-line" }}
+        >
+          {`Hello,\nI'm Reina Tng`}
         </Typography>
 
         <Typography
@@ -40,7 +40,6 @@ export default function Hero() {
           Business Analysis • Product • Systems Thinking
         </Typography>
 
-        {/* Social Icons */}
         {/* Social Icons */}
         <Box sx={{ display: "flex", gap: 2, mb: 5 }}>
           {[
@@ -79,7 +78,6 @@ export default function Hero() {
 
         <Box sx={{ display: "flex", gap: 2 }}>
           <Button
-            href="#projects"
             variant="contained"
             sx={{
               bgcolor: "white",
@@ -87,17 +85,24 @@ export default function Hero() {
               fontWeight: "bold",
               px: 4,
             }}
+            onClick={() => {
+              const section = document.querySelector("#projects");
+              section?.scrollIntoView({ behavior: "smooth" });
+            }}
           >
             View Portfolio
           </Button>
 
           <Button
-            href="#about"
             variant="outlined"
             sx={{
               borderColor: "white",
               color: "white",
               px: 4,
+            }}
+            onClick={() => {
+              const section = document.querySelector("#about");
+              section?.scrollIntoView({ behavior: "smooth" });
             }}
           >
             About Me
@@ -109,7 +114,7 @@ export default function Hero() {
       <Box
         sx={{
           flex: 1,
-          pr: { xs: 0, md: 10 }, // 🔥 add right-side padding
+          pr: { xs: 0, md: 6 },
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

@@ -35,7 +35,7 @@ export default function About() {
   ];
 
   return (
-    <Box id="about" sx={{ py: 12 }}>
+    <Box id="about" sx={{ pt: 10, pb: 10 }}>
       <Container maxWidth="lg" sx={{ textAlign: "center" }}>
         {/* Section Title */}
         <Typography
@@ -52,38 +52,35 @@ export default function About() {
           fontWeight="800"
           sx={{ mb: 6, color: "primary.main" }}
         >
-          Where Business Needs Meet Systems Thinking
+          Final-year Information Systems Student at NUS
         </Typography>
 
         {/* Paragraph 1 */}
         <Typography
-          variant="h6"
+          variant="body1"
           sx={{
             maxWidth: 850,
             mx: "auto",
-            mb: 6,
+            mb: 4,
             color: "text.secondary",
             lineHeight: 1.9,
             textAlign: "justify",
             textJustify: "inter-word",
           }}
         >
-          I’m an Information Systems undergraduate at the National University of
-          Singapore with a strong interest in business analysis and systems
-          design. I enjoy understanding how teams work, mapping out workflows,
-          and translating real user needs into clear and actionable
-          requirements. Whether it's analysing gaps, improving processes, or
-          shaping product logic, I’m driven by making systems easier to
-          understand and use.
+          I’m an Information Systems student at NUS with an interest in how
+          products, processes, and systems fit together. I enjoy breaking down
+          problems, understanding how teams operate, and turning user needs into
+          clear requirements that make systems easier to use.
         </Typography>
 
         {/* Paragraph 2 */}
         <Typography
-          variant="h6"
+          variant="body1"
           sx={{
             maxWidth: 850,
             mx: "auto",
-            mb: 10,
+            mb: 8,
             color: "text.secondary",
             lineHeight: 1.9,
             textAlign: "justify",
@@ -112,7 +109,7 @@ export default function About() {
                     theme.palette.primary.main
                   }`,
                   borderRadius: 2,
-                  maxWidth: 200
+                  maxWidth: 200,
                 }}
               >
                 <Box sx={{ textAlign: "center" }}>

@@ -8,7 +8,8 @@ export default function Hobby() {
     <Box
       id="hobby"
       sx={{
-        py: 14,
+        pt: 10,
+        pb: 10,
         backgroundColor: "background.paper",
       }}
     >
@@ -26,9 +27,9 @@ export default function Hobby() {
         <Typography
           variant="h4"
           fontWeight={800}
-          sx={{ color: "text.primary" }}
+          sx={{ color: "primary.main" }}
         >
-          My Little Latte Art Hobby
+          Learning Latte Art
         </Typography>
       </Box>
 
@@ -42,37 +43,36 @@ export default function Hobby() {
         }}
       >
         <Typography
-          variant="h6"
-          fontWeight={700}
-          color="primary"
-          sx={{ mb: 3 }}
+          variant="body1"
+          sx={{
+            maxWidth: 850,
+            mx: "auto",
+            mb: 4,
+            color: "text.secondary",
+            lineHeight: 1.9,
+            textAlign: "justify",
+            textJustify: "inter-word",
+          }}
         >
-          From Burnt Cones to Home Coffees
+          I’ve always enjoyed coffee ☕, and I first tried latte art when I was
+          working at Burnt Cones. It’s not something I do regularly, just
+          something I like to try whenever I get the chance to make a cup.
         </Typography>
 
         <Typography
           variant="body1"
-          sx={{ mb: 2, color: "text.secondary", lineHeight: 1.7 }}
+          sx={{
+            maxWidth: 850,
+            mx: "auto",
+            mb: 4,
+            color: "text.secondary",
+            lineHeight: 1.9,
+            textAlign: "justify",
+            textJustify: "inter-word",
+          }}
         >
-          I picked up latte art when I worked at Burnt Cones — and it slowly
-          became a small, comforting hobby. Nothing serious, just me trying to
-          pour nicer hearts and tulips without the milk exploding everywhere.
-        </Typography>
-
-        <Typography
-          variant="body1"
-          sx={{ mb: 2, color: "text.secondary", lineHeight: 1.7 }}
-        >
-          Most days, I just enjoy the process: steaming milk, trying new beans,
-          and seeing if today’s pour turns out better than yesterday’s. It’s a
-          fun, quiet ritual I look forward to.
-        </Typography>
-
-        <Typography
-          variant="body1"
-          sx={{ color: "text.secondary", lineHeight: 1.7 }}
-        >
-          Even if the art fails, at least I still get a good cup of coffee.
+          I can pour rosettas and stacked tulips, but the swan still refuses to
+          work out 🦢.
         </Typography>
       </Box>
 

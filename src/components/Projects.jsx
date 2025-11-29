@@ -2,7 +2,6 @@ import {
   Box,
   Container,
   Typography,
-  Grid,
   Card,
   CardContent,
   Chip,
@@ -11,38 +10,46 @@ import {
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
+import applicantJobListing from "../assets/applicant-joblisting.png";
+import applicantNotif from "../assets/applicant-notif.png";
+import applicantPipeline from "../assets/applicant-pipeline.png";
+import applicantResume from "../assets/applicant-resume.png";
+import employerJD from "../assets/employer-aiJD.png";
+import employerRanking from "../assets/employer-airanking.png";
+import resaleDashboard from "../assets/resale-dashboard.png";
+import predictPart1 from "../assets/predict-part1.png";
+import predictPart2 from "../assets/predict-part2.png";
+
 export default function Projects() {
   const projects = [
     {
       title: "JobSphere — AI-Enhanced Job Ecosystem",
       desc: "A full-stack multi-tenant platform designed to streamline hiring workflows with AI-powered resume insights, job-fit analysis, and structured applicant tracking.",
-      // 🔥 Placeholder screenshots — replace later
       images: [
-        "https://placehold.co/800x450/2563eb/ffffff?text=JobSphere+1",
-        "https://placehold.co/800x450/2563eb/ffffff?text=JobSphere+2",
-        "https://placehold.co/800x450/2563eb/ffffff?text=JobSphere+3",
+        applicantJobListing,
+        applicantNotif,
+        applicantPipeline,
+        applicantResume,
+        employerJD,
+        employerRanking,
       ],
       tags: ["React", "Express.js", "MongoDB", "Material UI"],
     },
     {
       title: "HDB Resale & BTO Data Analytics Platform",
       desc: "An end-to-end data engineering solution that processes and visualizes Singapore housing datasets to uncover price trends, location insights, and affordability patterns.",
-      // 🔥 Placeholder screenshots — replace later
-      images: [
-        "https://placehold.co/800x450/9333ea/ffffff?text=HDB+Analytics+1",
-        "https://placehold.co/800x450/9333ea/ffffff?text=HDB+Analytics+2",
-      ],
+      images: [resaleDashboard, predictPart1, predictPart2],
       tags: ["Python", "Pandas", "PostgreSQL", "Streamlit"],
     },
   ];
 
   return (
-    <Box id="projects" sx={{ py: 14, bgcolor: "white" }}>
+    <Box id="projects" sx={{ pt: 10, pb: 10, bgcolor: "white" }}>
       <Container maxWidth="lg">
         <Typography
-          variant="h4"
+          variant="h5"
           fontWeight="bold"
-          color="primary"
+          color="primary.light"
           textAlign="center"
           sx={{ mb: 1 }}
         >
@@ -50,104 +57,111 @@ export default function Projects() {
         </Typography>
 
         <Typography
-          variant="h3"
-          fontWeight="800"
+          variant="h4"
+          color="primary"
+          fontWeight={800}
           textAlign="center"
-          sx={{ mb: 8 }}
+          sx={{ mb: 6 }}
         >
-          Featured Projects
+          Projects I’ve Contributed To
         </Typography>
 
-        <Grid container>
+        {/* 🔥 Replace Grid with flex column */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            gap: { xs: 6, md: 4 }, // control spacing between the two cards
+            justifyContent: "center",
+            alignItems: "stretch",
+          }}
+        >
           {projects.map((p, index) => (
-            <Grid item xs={12} md={6} key={index}>
-              <Card
-                sx={(theme) => ({
-                  transform: "scale(0.85)",
-                  transformOrigin: "top center",
-                  boxShadow: 6,
-                  borderRadius: 3,
+            <Card
+              key={index}
+              sx={(theme) => ({
+                flex: 1,
+                maxWidth: { xs: "100%", md: "48%" }, // two side-by-side on desktop
+                boxShadow: 6,
+                borderRadius: 3,
+                overflow: "hidden",
+
+                "& .swiper-button-next, & .swiper-button-prev": {
+                  color: theme.palette.primary.main,
+                  transform: "scale(0.55)", // responsive size shrink
+                },
+                "& .swiper-pagination-bullet-active": {
+                  background: theme.palette.primary.main,
+                },
+              })}
+            >
+              {/* ⭐ Screenshot Carousel */}
+              <Box
+                sx={{
+                  width: "100%",
+                  position: "relative",
+                  paddingTop: "55%", // tighter aspect ratio
                   overflow: "hidden",
-
-                  // 🔥 Swiper arrows using MUI theme primary color
-                  "& .swiper-button-next, & .swiper-button-prev": {
-                    color: theme.palette.primary.main,
-                  },
-
-                  // 🔥 Active pagination dot uses primary color too
-                  "& .swiper-pagination-bullet-active": {
-                    background: theme.palette.primary.main,
-                  },
-                })}
+                }}
               >
-                {/* ⭐ Responsive Carousel */}
-                <Box
-                  sx={{
+                <Swiper
+                  modules={[Navigation, Pagination]}
+                  navigation
+                  pagination={{ clickable: true }}
+                  slidesPerView={1}
+                  style={{
                     width: "100%",
-                    position: "relative",
-                    paddingTop: "62.5%", // 16:10 aspect ratio
-                    overflow: "hidden",
+                    height: "100%",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
                   }}
                 >
-                  <Swiper
-                    modules={[Navigation, Pagination]}
-                    navigation
-                    pagination={{ clickable: true }}
-                    spaceBetween={0}
-                    slidesPerView={1}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                    }}
-                  >
-                    {p.images.map((img, i) => (
-                      <SwiperSlide key={i}>
-                        <img
-                          src={img}
-                          alt=""
-                          style={{
-                            width: "100%",
-                            height: "100%",
-                            objectFit: "cover",
-                          }}
-                        />
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                </Box>
-
-                {/* Content */}
-                <CardContent>
-                  <Typography variant="h6" fontWeight="bold" sx={{ mb: 1 }}>
-                    {p.title}
-                  </Typography>
-
-                  <Typography sx={{ mb: 2, color: "text.secondary" }}>
-                    {p.desc}
-                  </Typography>
-
-                  <Box>
-                    {p.tags.map((tag, i) => (
-                      <Chip
-                        key={i}
-                        label={tag}
-                        sx={{
-                          mr: 1,
-                          mb: 1,
-                          bgcolor: "#f3f4f6",
-                          fontSize: "0.8rem",
+                  {p.images.map((img, i) => (
+                    <SwiperSlide key={i}>
+                      <img
+                        src={img}
+                        alt=""
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
+                          backgroundColor: "#f8f8f8",
                         }}
                       />
-                    ))}
-                  </Box>
-                </CardContent>
-              </Card>
-            </Grid>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </Box>
+
+              {/* Content */}
+              <CardContent sx={{ p: 2 }}>
+                <Typography variant="h6" fontWeight="bold" sx={{ mb: 1 }}>
+                  {p.title}
+                </Typography>
+
+                <Typography sx={{ mb: 2, color: "text.secondary" }}>
+                  {p.desc}
+                </Typography>
+
+                <Box>
+                  {p.tags.map((tag, i) => (
+                    <Chip
+                      key={i}
+                      label={tag}
+                      sx={{
+                        mr: 1,
+                        mb: 1,
+                        bgcolor: "#f3f4f6",
+                        fontSize: "0.8rem",
+                      }}
+                    />
+                  ))}
+                </Box>
+              </CardContent>
+            </Card>
           ))}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   );
