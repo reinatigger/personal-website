@@ -12,61 +12,80 @@ export default function Hero() {
       sx={{
         bgcolor: "primary.main",
         color: "white",
-        py: { xs: 14, md: 16 },
-        pb: { xs: 8, md: 10 }, // <-- shorter bottom
-        px: 8,
-
+        py: { xs: 12, md: 16 }, // balanced top + bottom
+        px: { xs: 3, sm: 5, md: 10 },
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
         alignItems: "center",
         justifyContent: "space-between",
-        gap: 8,
+        gap: { xs: 6, md: 10 },
       }}
     >
       {/* LEFT SIDE — TEXT */}
-      <Box sx={{ flex: 1.2, ml: { xs: 0, md: 6 } }}>
+      <Box
+        sx={{
+          flex: 1,
+          ml: { xs: 0, md: 10 }, // ⭐ pushes text slightly to the right
+          textAlign: { xs: "center", md: "left" },
+        }}
+      >
         <Typography
-          variant="h2"
+          variant="h3"
           fontWeight={800}
-          sx={{ mb: 2, whiteSpace: "pre-line" }}
+          sx={{
+            whiteSpace: "pre-line",
+            mb: 2,
+            fontSize: {
+              xs: "2rem",
+              sm: "2.4rem",
+              md: "3rem",
+              lg: "3.4rem",
+            },
+          }}
         >
           {`Hello,\nI'm Reina Tng`}
         </Typography>
 
         <Typography
-          variant="h6"
-          sx={{ opacity: 0.9, mb: 4, color: "background.default" }}
+          variant="body1"
+          sx={{
+            opacity: 0.9,
+            mb: 4,
+            color: "background.default",
+            fontSize: { xs: "1rem", sm: "1.1rem" },
+          }}
         >
           Business Analysis • Product • Systems Thinking
         </Typography>
 
         {/* Social Icons */}
-        <Box sx={{ display: "flex", gap: 2, mb: 5 }}>
+        <Box
+          sx={{
+            display: "flex",
+            gap: 2,
+            mb: 4,
+            justifyContent: { xs: "center", md: "flex-start" },
+          }}
+        >
           {[
             {
-              icon: <LinkedInIcon sx={{ fontSize: 32 }} />,
+              icon: <LinkedInIcon />,
               url: "https://www.linkedin.com/in/reinatng/",
             },
-            {
-              icon: <GitHubIcon sx={{ fontSize: 32 }} />,
-              url: "https://github.com/reinatigger",
-            },
-            {
-              icon: <EmailIcon sx={{ fontSize: 32 }} />,
-              url: "mailto:tngreina10@gmail.com",
-            },
+            { icon: <GitHubIcon />, url: "https://github.com/reinatigger" },
+            { icon: <EmailIcon />, url: "mailto:tngreina10@gmail.com" },
           ].map((item, i) => (
             <IconButton
               key={i}
               href={item.url}
               target="_blank"
-              rel="noopener noreferrer"
               sx={{
                 color: "white",
+                "& svg": { fontSize: "1.9rem" },
                 transition: "0.25s",
-                borderRadius: "12px",
+                borderRadius: "0.75rem",
                 "&:hover": {
-                  backgroundColor: "rgba(255,255,255,0.2)",
+                  backgroundColor: "rgba(255,255,255,0.15)",
                   transform: "scale(1.15)",
                 },
               }}
@@ -76,19 +95,29 @@ export default function Hero() {
           ))}
         </Box>
 
-        <Box sx={{ display: "flex", gap: 2 }}>
+        {/* Buttons */}
+        <Box
+          sx={{
+            display: "flex",
+            gap: 2,
+            justifyContent: { xs: "center", md: "flex-start" },
+          }}
+        >
           <Button
             variant="contained"
             sx={{
               bgcolor: "white",
               color: "primary.main",
               fontWeight: "bold",
-              px: 4,
+              px: { xs: 3, md: 4 },
+              py: { xs: 1, md: 1.2 },
+              fontSize: { xs: "0.9rem", md: "1rem" },
             }}
-            onClick={() => {
-              const section = document.querySelector("#projects");
-              section?.scrollIntoView({ behavior: "smooth" });
-            }}
+            onClick={() =>
+              document
+                .querySelector("#projects")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             View Portfolio
           </Button>
@@ -98,37 +127,41 @@ export default function Hero() {
             sx={{
               borderColor: "white",
               color: "white",
-              px: 4,
+              px: { xs: 3, md: 4 },
+              py: { xs: 1, md: 1.2 },
+              fontSize: { xs: "0.9rem", md: "1rem" },
             }}
-            onClick={() => {
-              const section = document.querySelector("#about");
-              section?.scrollIntoView({ behavior: "smooth" });
-            }}
+            onClick={() =>
+              document
+                .querySelector("#about")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             About Me
           </Button>
         </Box>
       </Box>
 
-      {/* RIGHT SIDE — FULL IMAGE */}
+      {/* RIGHT SIDE — AVATAR */}
       <Box
         sx={{
           flex: 1,
-          pr: { xs: 0, md: 6 },
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          ml: { xs: 0, md: -10 },
+          mt: { xs: 2, md: 4 }, // ⭐ LIFT avatar upward to balance layout
         }}
       >
         <Avatar
           src={ReinaPic}
           alt="Reina"
           sx={{
-            width: { xs: 320, md: 520 }, // 🔥 BIG hero-sized avatar
-            height: { xs: 320, md: 520 },
+            width: { xs: "14rem", sm: "16rem", md: "26rem" },
+            height: { xs: "14rem", sm: "16rem", md: "26rem" },
             borderRadius: "50%",
-            border: "8px solid white", // looks better on large avatar
-            boxShadow: "0 10px 25px rgba(0,0,0,0.25)",
+            border: "0.4rem solid white",
+            boxShadow: "0 0.6rem 1.4rem rgba(0,0,0,0.25)",
             objectFit: "cover",
           }}
         />

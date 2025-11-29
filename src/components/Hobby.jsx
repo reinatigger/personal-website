@@ -45,13 +45,12 @@ export default function Hobby() {
         <Typography
           variant="body1"
           sx={{
-            maxWidth: 850,
             mx: "auto",
             mb: 4,
             color: "text.secondary",
-            lineHeight: 1.9,
-            textAlign: "justify",
-            textJustify: "inter-word",
+            lineHeight: 1.8,
+            textAlign: { xs: "left", sm: "justify" },
+            px: { xs: 2, sm: 0 },
           }}
         >
           I’ve always enjoyed coffee ☕, and I first tried latte art when I was
@@ -62,13 +61,12 @@ export default function Hobby() {
         <Typography
           variant="body1"
           sx={{
-            maxWidth: 850,
             mx: "auto",
             mb: 4,
             color: "text.secondary",
-            lineHeight: 1.9,
-            textAlign: "justify",
-            textJustify: "inter-word",
+            lineHeight: 1.8,
+            textAlign: { xs: "left", sm: "justify" },
+            px: { xs: 2, sm: 0 },
           }}
         >
           I can pour rosettas and stacked tulips, but the swan still refuses to
@@ -77,35 +75,43 @@ export default function Hobby() {
       </Box>
 
       {/* IMAGE ROW — THREE EQUAL IMAGES */}
+      {/* IMAGE ROW — 100% RESPONSIVE */}
       <Box
         sx={{
           maxWidth: "1000px",
           mx: "auto",
-          display: "flex",
-          flexDirection: { xs: "column", sm: "row" },
-          gap: 3,
-          justifyContent: "center",
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "1fr", // mobile: 1 column stacked
+            sm: "1fr 1fr", // small tablets: 2 columns
+            md: "1fr 1fr 1fr", // desktop: 3 columns
+          },
+          gap: { xs: 2.5, sm: 3 }, // spacing between images
+          px: { xs: 2, sm: 0 }, // phone-only horizontal padding
         }}
       >
         {[Pouring, Art1, Art2].map((src, idx) => (
           <Paper
             key={idx}
-            elevation={4}
+            elevation={3}
             sx={{
-              flex: 1,
               borderRadius: 3,
               overflow: "hidden",
               transition: "0.3s",
-              "&:hover": { transform: "scale(1.03)" },
+              "&:hover": {
+                transform: { sm: "scale(1.02)" }, // enable hover only on larger screens
+              },
             }}
           >
             <img
               src={src}
-              alt="latte hobby"
+              alt="latte art"
               style={{
                 width: "100%",
-                height: "350px",
-                objectFit: "cover",
+                height: "100%",
+                maxHeight: "260px", // responsive max height
+                objectFit: "cover", // no distortion
+                display: "block",
               }}
             />
           </Paper>
