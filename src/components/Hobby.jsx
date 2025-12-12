@@ -57,21 +57,6 @@ export default function Hobby() {
           working at Burnt Cones. It’s not something I do regularly, just
           something I like to try whenever I get the chance to make a cup.
         </Typography>
-
-        <Typography
-          variant="body1"
-          sx={{
-            mx: "auto",
-            mb: 4,
-            color: "text.secondary",
-            lineHeight: 1.8,
-            textAlign: { xs: "left", sm: "justify" },
-            px: { xs: 2, sm: 0 },
-          }}
-        >
-          I can pour rosettas and stacked tulips, but the swan still refuses to
-          work out 🦢.
-        </Typography>
       </Box>
 
       {/* IMAGE ROW — THREE EQUAL IMAGES */}
