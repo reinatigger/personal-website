@@ -13,6 +13,13 @@ export default function Experiences() {
 
   const experiences = [
     {
+      title: "Project Manager Intern",
+      company: "Bank of America",
+      period: "Jan 2026 – Jun 2026",
+      description:
+        "Led end-to-end AI process-improvement initiatives using RAG and Copilot Studio, securing governance approval to scale solutions globally, including invoice automation that saved significant manual processing time.",
+    },
+    {
       title: "Product Manager Intern",
       company: "Binance",
       period: "Jul 2025 – Oct 2025",
